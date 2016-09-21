@@ -10,10 +10,8 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,10 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: del3q2jhtc40oe
-  pool: 5
-  username: hlhtfkujacvgki    
-  password: V_dpfpIulC8B_vVVSKQDpbQ0hM
-  host: ec2-54-243-202-84.compute-1.amazonaws.com
+  <<: *default
+  database: db/production.sqlite3
